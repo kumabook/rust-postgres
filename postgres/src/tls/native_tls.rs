@@ -31,8 +31,8 @@ impl fmt::Debug for NativeTls {
 impl NativeTls {
     /// Creates a new `NativeTls` with its default configuration.
     pub fn new() -> Result<NativeTls, native_tls::Error> {
-        let connector = TlsConnector::builder()?;
-        let connector = connector.build()?;
+        let connector = TlsConnector::builder();
+        let connector = connector.build().unwrap();
         Ok(NativeTls(connector))
     }
 
